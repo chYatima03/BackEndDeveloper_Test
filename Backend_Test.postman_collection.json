@@ -159,7 +159,7 @@
 					"formdata": [
 						{
 							"key": "type_beer_id",
-							"value": "2",
+							"value": "1",
 							"type": "default"
 						},
 						{
@@ -223,7 +223,7 @@
 					"formdata": [
 						{
 							"key": "type_beer_id",
-							"value": "2",
+							"value": "1",
 							"type": "default"
 						},
 						{
@@ -277,6 +277,280 @@
 					"port": "8000",
 					"path": [
 						"parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Parent By name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/parent/ข้อมูลสรุป",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"parent",
+						"ข้อมูลสรุป"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Parent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/parent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Parent By id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ข้อมูลสรุป\",\r\n    \"icon\":\"fi-rr-chart-pie-alt\",\r\n    \"route\":\"/dashboards\",\r\n    \"is_children\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/parent/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"parent",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Parent ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ข้อมูลสรุป\",\r\n    \"icon\":\"fi-rr-chart-pie-alt\",\r\n    \"route\":\"/dashboards\",\r\n    \"is_children\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/parent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Parent ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ข้อมูลสรุป\",\r\n    \"icon\":\"fi-rr-chart-pie-alt\",\r\n    \"route\":\"/dashboards\",\r\n    \"is_children\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/parent/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"parent",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Children by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"สินทรัพย์\",\r\n    \"parent_id\":1,\r\n    \"route\":\"/dashboards/asset\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/children/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"children",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Children",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/children",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"children"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Children by ID or Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/children/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"children",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Children by ID ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/children/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"children",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Children",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"สินทรัพย์\",\r\n    \"parent_id\":1,\r\n    \"route\":\"/dashboards/asset\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/children",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"children"
 					]
 				}
 			},

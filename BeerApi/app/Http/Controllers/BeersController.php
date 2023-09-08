@@ -29,9 +29,10 @@ class BeersController extends Controller
 
         return $this->showResponse($beers);
     }
-    public function show($name)
+    public function show(Request $request, $name)
     {
-        $beer = Beers::where('beer_name', 'like', '%' . $name . '%')->with(['types' => function ($query) {
+        // $request->segment(2) กรณีเป็นภาษาไทย มันอ่านค่าไม่ได้
+        $beer = Beers::where('beer_name', 'like', '%' . $request->segment(2) . '%')->with(['types' => function ($query) {
             $query->select(['id', 'type_name']);
         }])->cursorPaginate(10);
         return $this->showResponse($beer);
@@ -67,7 +68,7 @@ class BeersController extends Controller
         $rules = [
             'type_beer_id' => 'required|max:10',
             'beer_name' => 'required|max:50',
-            'beer_image' => 'required|max:2056',
+            'beer_image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'beer_detail' => 'required|max:300',
         ];
 
@@ -130,6 +131,15 @@ class BeersController extends Controller
 
         if (Beers::find($id)) {
             $beer = Beers::findOrFail($id);
+            $beer_ = $beer;
+            $beer_old = [
+                'id' => $beer_['id'],
+                'type_beer_id' => $beer_['type_beer_id'],
+                'beer_name' => $beer_['beer_name'],
+                'beer_image' => $beer_['beer_image'],
+                'beer_detail' => $beer_['beer_detail'],
+            ];
+
             $file_path = base_path('public/uploads/images/beer/');
             $file_path = $file_path . $beer['beer_image'];
 
@@ -140,7 +150,7 @@ class BeersController extends Controller
             }
 
             $beer->delete();
-            $this->addLog('', '');
+            $this->addLog($beer_old, '');
             return $this->successResponse([
                 'message' => 'Delete is Successfuly',
             ]);

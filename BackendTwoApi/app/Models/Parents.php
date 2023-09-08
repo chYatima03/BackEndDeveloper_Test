@@ -9,15 +9,16 @@ class Parents extends Model
 {
 
     use HasFactory;
+    protected $database = 'mysql';
     protected $table = 'parents';
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
-    // protected $fillable = [
-    //     'name', 'route','icon', 'is_children',
-    // ];
+    protected $fillable = [
+        'name', 'route','icon', 'is_children',
+    ];
     protected $hidden = [
         'updated_at',
         'created_at',

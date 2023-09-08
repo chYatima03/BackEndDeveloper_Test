@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('parents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name',50)->nullable();
-            $table->string('route',50)->default('/');
-            $table->string('icon',100)->nullable();
-            $table->boolean('is_children')->default(0);
+        Schema::connection('mongodb')->create('data_log_children', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('parents');
+        Schema::connection('mongodb')->dropIfExists('data_log_children');
     }
 };
